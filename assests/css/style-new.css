@@ -1583,13 +1583,7 @@ main.touch .main-wrap {
       padding-top: 0;
    }
 
-   .work-tiles-home .container ul li:nth-child(7){
-      display: none;
-   }
 
-   .work-tiles-home .container ul li:nth-child(8){
-      display: none;
-   }
 }
 
 /* ------------------------- Work Grid - Fade -------------------------------------------------- */
