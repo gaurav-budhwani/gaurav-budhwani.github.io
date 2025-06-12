@@ -447,6 +447,223 @@ main.touch .main-wrap {
 }
 
 
+/* ------------------------- Skills Section -------------------------------------------------- */
+
+.skills-section {
+   background: var(--color-dark);
+   padding: var(--section-padding) 0;
+   position: relative;
+   z-index: 1;
+   margin-top: 0;
+   clear: both;
+   width: 100%;
+   overflow: visible;
+}
+
+/* Ensure heading is always visible */
+.skills-section.theme-dark h2,
+.theme-dark .skills-section h2,
+section.skills-section h2,
+.skills-main-heading {
+   color: var(--color-white) !important;
+   display: block !important;
+   font-family: inherit !important;
+}
+
+/* Specific styling for skills main heading */
+.skills-main-heading {
+   font-size: clamp(2.5em, 5vw, 4em) !important;
+   font-weight: 400 !important;
+   line-height: 1.1 !important;
+   margin-bottom: 1.5em !important;
+   margin-top: 0.5em !important;
+   color: var(--color-white) !important;
+   text-align: left !important;
+   display: block !important;
+   visibility: visible !important;
+   opacity: 1 !important;
+   z-index: 10 !important;
+   position: relative !important;
+}
+
+/* Skills section grid-sub-title styling */
+.skills-section .grid-sub-title {
+   width: 100%;
+   display: flex;
+   padding-bottom: 0.5em;
+   margin-bottom: 0.5em;
+}
+
+.skills-section .grid-sub-title h5 {
+   margin: 0;
+   width: 100%;
+   color: var(--color-white) !important;
+   font-size: 1em;
+   font-weight: 500;
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+}
+
+.skills-section h2 {
+   font-size: clamp(2.5em, 5vw, 4em);
+   font-weight: 400;
+   line-height: 1.1;
+   margin-bottom: 2.5em;
+   margin-top: 0;
+   color: var(--color-white) !important;
+   text-align: left;
+   display: block !important;
+   visibility: visible !important;
+   opacity: 1 !important;
+   z-index: 10;
+   position: relative;
+}
+
+.skills-category {
+   margin-bottom: 2.5em;
+   position: relative;
+}
+
+.skills-category:last-child {
+   margin-bottom: 1em;
+}
+
+.skills-category h5 {
+   font-size: clamp(1.1em, 1.5vw, 1.3em);
+   font-weight: 500;
+   letter-spacing: 0.02em;
+   margin-bottom: 1.2em;
+   margin-top: 0;
+   color: var(--color-white);
+   text-transform: uppercase;
+   position: relative;
+   padding-bottom: 0.5em;
+}
+
+.skills-category h5::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 2em;
+   height: 1px;
+   background: var(--color-white);
+   opacity: 0.3;
+}
+
+.skills-list {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1.2em;
+   animation: fadeInUp 0.8s ease-out;
+   margin-top: 0.5em;
+}
+
+.skill-tag {
+   background: rgba(255, 255, 255, 0.08);
+   color: var(--color-white);
+   padding: 0.75em 1.5em;
+   border-radius: 30px;
+   font-size: clamp(0.85em, 1vw, 0.95em);
+   font-weight: 450;
+   border: 1px solid rgba(255, 255, 255, 0.15);
+   transition: var(--animation-primary);
+   cursor: default;
+   position: relative;
+   overflow: hidden;
+   backdrop-filter: blur(10px);
+}
+
+.skill-tag::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: -100%;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+   transition: var(--animation-primary);
+}
+
+.skill-tag:hover {
+   background: rgba(255, 255, 255, 0.12);
+   border-color: rgba(255, 255, 255, 0.25);
+   transform: translateY(-3px);
+   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.skill-tag:hover::before {
+   left: 100%;
+}
+
+@keyframes fadeInUp {
+   from {
+      opacity: 0;
+      transform: translateY(30px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+.skills-category:nth-child(2) .skills-list {
+   animation-delay: 0.2s;
+}
+
+.skills-category:nth-child(3) .skills-list {
+   animation-delay: 0.4s;
+}
+
+/* Ensure proper spacing from previous sections */
+.work-grid + .skills-section {
+   margin-top: var(--section-padding);
+}
+
+@media screen and (max-width: 768px) {
+   .skills-section h2,
+   .skills-main-heading {
+      margin-bottom: 1.5em !important;
+   }
+
+   .skills-category {
+      margin-bottom: 2em;
+   }
+
+   .skills-category h5 {
+      margin-bottom: 1em;
+   }
+
+   .skills-section .grid-sub-title {
+      padding-bottom: 0.3em;
+      margin-bottom: 0.3em;
+   }
+
+   .skills-list {
+      gap: 0.75em;
+   }
+
+   .skill-tag {
+      font-size: 0.8em;
+      padding: 0.6em 1.2em;
+   }
+
+   .work-grid + .skills-section {
+      margin-top: calc(var(--section-padding) * 0.75);
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .skills-list {
+      gap: 0.5em;
+   }
+
+   .skill-tag {
+      font-size: 0.75em;
+      padding: 0.5em 1em;
+   }
+}
+
 /* ------------------------- Footer -------------------------------------------------- */
 
 .footer-wrap {
