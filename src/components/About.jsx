@@ -30,7 +30,11 @@ const About = () => {
                             className="relative"
                         >
                             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-                                <img src={aboutImg} alt="Gaurav at University of Miami" className="w-full h-auto object-cover" />
+                                <img
+                                    src={aboutImg}
+                                    alt="Gaurav at University of Miami"
+                                    className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                                />
                             </div>
                             <p className="font-sans text-sm font-medium text-gray-700 mt-4 text-center">
                                 At University of Miami, Florida, USA
