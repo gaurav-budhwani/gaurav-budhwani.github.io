@@ -76,7 +76,7 @@ const ProjectPage = () => {
                 {/* Content Body */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     {/* Main Content */}
-                    <div className="lg:col-span-8 prose prose-lg font-sans text-gray-800">
+                    <div className={`${project.fullWidth ? 'lg:col-span-12' : 'lg:col-span-8'} prose prose-lg font-sans text-gray-800`}>
                         {project.longDescription && (
                             <div className="mb-12">
                                 <h3 className="font-serif text-2xl font-bold mb-4">Overview</h3>
@@ -106,21 +106,23 @@ const ProjectPage = () => {
                         )}
                     </div>
 
-                    {/* Sidebar / Image */}
-                    <div className="lg:col-span-4">
-                        <div className="sticky top-32">
-                            <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-auto object-contain rounded-lg shadow-sm bg-white p-2 border border-gray-100"
-                                />
-                                <p className="font-mono text-xs text-center text-gray-400 mt-4 uppercase tracking-widest">
-                                    Project Preview
-                                </p>
+                    {/* Sidebar / Image (Hidden if fullWidth is true) */}
+                    {!project.fullWidth && (
+                        <div className="lg:col-span-4">
+                            <div className="sticky top-32">
+                                <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-auto object-contain rounded-lg shadow-sm bg-white p-2 border border-gray-100"
+                                    />
+                                    <p className="font-mono text-xs text-center text-gray-400 mt-4 uppercase tracking-widest">
+                                        Project Preview
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    )}
                 </div>
             </div>
         </div>

@@ -74,7 +74,8 @@ export const cseProjects = [
         ],
         techStack: ["Python", "Scikit-Learn", "Pandas", "Seaborn"],
         repoUrl: "https://github.com/gaurav-budhwani/HAR-Human-Activity-Recognizer-ML",
-        notebookData: harNotebook
+        notebookData: harNotebook,
+        fullWidth: true
     },
     {
         title: "Quiz Application",
