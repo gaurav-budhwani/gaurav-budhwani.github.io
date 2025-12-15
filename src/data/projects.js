@@ -19,7 +19,7 @@ export const cseProjects = [
         description: "Custom implementation of TCP protocol features.",
         image: tcpImg,
         link: "/project/tcp",
-        category: "CS"
+        category: "Networking"
     },
     {
         title: "Constraint Satisfaction",
@@ -27,7 +27,7 @@ export const cseProjects = [
         description: "Visualizing CSP algorithms for complex problem solving.",
         image: cspImg,
         link: "/project/csp",
-        category: "CS"
+        category: "AI / Algorithms"
     },
     {
         title: "Human Activity Recognition",
@@ -35,7 +35,7 @@ export const cseProjects = [
         description: "Classifying human activities using sensor data.",
         image: harImg,
         link: "/project/har",
-        category: "CS"
+        category: "Machine Learning"
     },
     {
         title: "Quiz Application",
@@ -43,7 +43,7 @@ export const cseProjects = [
         description: "Interactive quiz platform with secure authentication.",
         image: quizImg,
         link: "/project/quiz-app",
-        category: "CS"
+        category: "Web Dev / Databses / Security"
     },
     {
         title: "Numerical Analysis of Car Breaking System",
@@ -51,7 +51,7 @@ export const cseProjects = [
         description: "Implementation of advanced numerical algorithms.",
         image: numericalImg,
         link: "/project/numerical-methods",
-        category: "CS"
+        category: "Computational Math"
     }
 ];
 
