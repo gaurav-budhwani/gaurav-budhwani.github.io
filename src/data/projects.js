@@ -14,6 +14,7 @@ import pyrolysisImg from '../assets/core/pyrolysis.png';
 
 import tcpReport from '../assets/reports/CN_Project.pdf';
 import cspReport from '../assets/reports/CSP_Report.pdf';
+import numericalReport from '../assets/reports/MA203_Project.pdf';
 
 import harNotebook from './HAR_Analysis.json';
 
@@ -94,7 +95,7 @@ export const cseProjects = [
             "Secure environment with basic verification",
             "Responsive Design"
         ],
-        longDescription: `This repo provides the code for the quiz app that I built with my friends ([Ruchit Jagodara](https://github.com/ruchitjagodara), [Bhavik Patel](https://github.com/bp0609/), [Hitesh Kumar](https://github.com/gaurav-budhwani)) under the guidance of [Prof. Balagopal Komarath](https://github.com/balu).
+        longDescription: `This repo provides the code for the quiz app that I built with my friends ([Ruchit Jagodara](https://github.com/ruchitjagodara), [Bhavik Patel](https://github.com/bp0609/), [Gaurav Budhwani](https://github.com/gaurav-budhwani)) under the guidance of [Prof. Balagopal Komarath](https://github.com/balu).
 
 The app is built using **Flask** and **SQLite3** and is designed to be lightweight, allowing it to be hosted on any machine with Python installed.
 
@@ -113,7 +114,18 @@ The application separates roles into **Admin** and **Student**. Admins have full
         description: "Implementation of advanced numerical algorithms.",
         image: numericalImg,
         link: "/project/numerical-methods",
-        category: "Computational Math"
+        category: "Computational Math",
+        slug: "numerical-methods",
+        techStack: ["Python", "NumPy", "Matplotlib"],
+        repoUrl: "https://github.com/gaurav-budhwani/MA-203-Project",
+        reportUrl: numericalReport,
+        features: [
+            "Transient Thermal Analysis of Brake Systems",
+            "Numerical Modeling of Heat Dissipation",
+            "Simulation of Braking Scenarios",
+            "Algorithm Implementation from Scratch"
+        ],
+        longDescription: "This project focuses on the **Transient Thermal Analysis of a Car Brake System**. It involves the mathematical modeling and numerical simulation of heat generation and dissipation in brake discs during braking. The project implements advanced numerical methods to solve differential equations governing heat transfer, allowing for the prediction of temperature profiles and thermal behavior under various conditions."
     }
 ];
 
