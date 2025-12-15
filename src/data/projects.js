@@ -13,6 +13,7 @@ import heatImg from '../assets/core/heat transfer.png';
 import pyrolysisImg from '../assets/core/pyrolysis.png';
 
 import tcpReport from '../assets/reports/CN_Project.pdf';
+import cspReport from '../assets/reports/CSP_Report.pdf';
 
 export const cseProjects = [
     {
@@ -40,7 +41,18 @@ export const cseProjects = [
         description: "Visualizing CSP algorithms for complex problem solving.",
         image: cspImg,
         link: "/project/csp",
-        category: "AI / Algorithms"
+        category: "AI / Algorithms",
+        slug: "csp",
+        longDescription: "This project is an interactive Constraint Satisfaction Problem (CSP) Visualizer built with React and TypeScript. It demonstrates how AI algorithms solve complex constraint problems like N-Queens and KenKen puzzles. The application features a premium UI with real-time visualization of solver steps, allowing users to understand algorithms like Backtracking, Forward Checking, and Arc Consistency.",
+        features: [
+            "N-Queens Solver (4x4 to 12x12)",
+            "KenKen Puzzle Generator & Solver",
+            "Visualized Algorithms: Backtracking, Forward Checking, MAC",
+            "Interactive User Play Mode with Validation"
+        ],
+        techStack: ["React", "TypeScript", "Vite", "CSS3"],
+        repoUrl: "https://github.com/gaurav-budhwani/CSP-Visualizer",
+        reportUrl: cspReport
     },
     {
         title: "Human Activity Recognition",
