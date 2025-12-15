@@ -22,14 +22,14 @@ const Blog = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 border-t border-black/10 pt-16">
                     {allProjects.map((project, index) => (
                         <Link key={index} to={project.link} className="group block">
-                            <div className="relative overflow-hidden mb-6 bg-gray-100 aspect-video border border-gray-200 rounded-lg">
+                            <div className="relative overflow-hidden mb-6 bg-gray-50 aspect-[4/3] border border-gray-200 rounded-lg">
                                 <div className="absolute top-2 left-2 z-10 font-mono text-[10px] bg-white px-2 py-1 border border-black/10 shadow-sm uppercase tracking-wider">
                                     {project.category}
                                 </div>
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                                    className="w-full h-full object-contain p-4 transform group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
                                 />
                             </div>
                             <div className="mt-4">

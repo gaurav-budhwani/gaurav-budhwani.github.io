@@ -62,7 +62,7 @@ export const coreProjects = [
         description: "Parameter estimation for wood particle pyrolysis.",
         image: pyrolysisImg,
         link: "/project/pyrolysis",
-        category: "ChemE"
+        category: "Separation process"
     },
     {
         title: "Cumene Process Design",
@@ -70,7 +70,7 @@ export const coreProjects = [
         description: "Energy-efficient plant design and optimization.",
         image: cumeneImg,
         link: "/project/cumene",
-        category: "ChemE"
+        category: "Process Design"
     },
     {
         title: "Laminar Airflow Optimization",
@@ -78,7 +78,7 @@ export const coreProjects = [
         description: "Minimizing heat loss via CFD analysis.",
         image: optimisationImg,
         link: "/project/airflow",
-        category: "ChemE"
+        category: "Optimisation"
     },
     {
         title: "Saffman-Taylor Instability",
@@ -86,7 +86,7 @@ export const coreProjects = [
         description: "Experimental study of Hele-Shaw instability.",
         image: saffmanImg,
         link: "/project/saffman",
-        category: "ChemE"
+        category: "Modelling"
     },
     {
         title: "Thermodynamics Analysis",
@@ -94,7 +94,7 @@ export const coreProjects = [
         description: "Thermodynamic cycle analysis and efficiency study.",
         image: thermoImg,
         link: "/project/thermo",
-        category: "ChemE"
+        category: "Thermodynamics"
     },
     {
         title: "Heat Transfer Efficiency",
@@ -102,7 +102,7 @@ export const coreProjects = [
         description: "Analysis of circular fin heat transfer efficiency.",
         image: heatImg,
         link: "/project/heat-transfer",
-        category: "ChemE"
+        category: "Heat Transfer"
     }
 ];
 
