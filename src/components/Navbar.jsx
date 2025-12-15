@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const Navbar = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
 
-    const links = [
-        { name: 'About', path: '/#about' },
-        { name: 'Projects', path: '/#projects' },
-        { name: 'Skills', path: '/#skills' },
-        { name: 'Blog', path: '/#/blog' },
-        { name: 'Contact', path: '/#contact' }
+    // Define navigation items with types
+    const navItems = [
+        { name: 'About', type: 'scroll', target: 'about' },
+        { name: 'Projects', type: 'scroll', target: 'projects' },
+        { name: 'Skills', type: 'scroll', target: 'skills' },
+        { name: 'Blog', type: 'route', path: '/blog' }, // HashRouter handles /blog as /#/blog automatically if we use navigate()
+        { name: 'Contact', type: 'scroll', target: 'contact' }
     ];
 
     // Prevent scrolling when menu is open
@@ -22,6 +24,34 @@ const Navbar = () => {
             document.body.style.overflow = 'unset';
         }
     }, [isOpen]);
+
+    // Handle Navigation Logic
+    const handleNavigation = (item) => {
+        setIsOpen(false); // Close mobile menu
+
+        if (item.type === 'route') {
+            navigate(item.path);
+        } else if (item.type === 'scroll') {
+            if (location.pathname !== '/') {
+                // If not on home, go home first, then scroll (using state or timeout)
+                navigate('/', { state: { scrollTo: item.target } });
+                // We'll need a listener in App.jsx or Hero.jsx to handle the 'state' scroll
+                // For now, a simple timeout approach often works in simple apps, 
+                // but passing state is cleaner. We will assume App.jsx handles it or we add a slight delay logic here if needed.
+                // Actually, let's keep it simple: Navigate, then try to scroll after a tick.
+                setTimeout(() => {
+                    const element = document.getElementById(item.target);
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            } else {
+                // Already on home, just scroll
+                const element = document.getElementById(item.target);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+    };
 
     return (
         <nav className="fixed top-0 left-0 w-full z-50">
@@ -34,15 +64,15 @@ const Navbar = () => {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex gap-16 items-center bg-gray-200/30 backdrop-blur-xl px-16 py-4 rounded-full border border-white/20 shadow-lg ring-1 ring-black/5">
-                    {links.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.path}
-                            className="font-mono text-sm uppercase tracking-widest font-bold text-black/80 hover:text-black transition-colors relative group"
+                    {navItems.map((item) => (
+                        <button
+                            key={item.name}
+                            onClick={() => handleNavigation(item)}
+                            className="font-mono text-sm uppercase tracking-widest font-bold text-black/80 hover:text-black transition-colors relative group bg-transparent border-none cursor-pointer"
                         >
-                            {link.name}
+                            {item.name}
                             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
-                        </a>
+                        </button>
                     ))}
                 </div>
 
@@ -71,15 +101,14 @@ const Navbar = () => {
                         className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center md:hidden"
                     >
                         <div className="flex flex-col gap-8 text-center">
-                            {links.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.path}
-                                    onClick={() => setIsOpen(false)}
-                                    className="font-serif text-4xl font-bold text-black hover:text-gray-600 transition-colors"
+                            {navItems.map((item) => (
+                                <button
+                                    key={item.name}
+                                    onClick={() => handleNavigation(item)}
+                                    className="font-serif text-4xl font-bold text-black hover:text-gray-600 transition-colors bg-transparent border-none"
                                 >
-                                    {link.name}
-                                </a>
+                                    {item.name}
+                                </button>
                             ))}
                         </div>
                     </motion.div>
