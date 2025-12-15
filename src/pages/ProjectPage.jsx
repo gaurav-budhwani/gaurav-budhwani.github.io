@@ -71,6 +71,26 @@ const ProjectPage = () => {
                                 View Code <span>→</span>
                             </a>
                         )}
+                        {project.presentationUrl && (
+                            <a
+                                href={project.presentationUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-mono text-sm font-bold uppercase tracking-wider border-2 border-black hover:bg-gray-50 transition-colors"
+                            >
+                                View PPT <span>→</span>
+                            </a>
+                        )}
+                        {project.videoUrl && (
+                            <a
+                                href={project.videoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-mono text-sm font-bold uppercase tracking-wider border-2 border-black hover:bg-gray-50 transition-colors"
+                            >
+                                View Setup <span>→</span>
+                            </a>
+                        )}
                     </div>
                 </motion.div>
 

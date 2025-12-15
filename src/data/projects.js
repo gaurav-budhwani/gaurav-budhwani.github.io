@@ -15,8 +15,16 @@ import pyrolysisImg from '../assets/core/pyrolysis.png';
 import tcpReport from '../assets/reports/CN_Project.pdf';
 import cspReport from '../assets/reports/CSP_Report.pdf';
 import numericalReport from '../assets/reports/MA203_Project.pdf';
+import pyrolysisReport from '../assets/reports/SP_Report.pdf';
+import pyrolysisPpt from '../assets/reports/Pyrolysis_ppt.pdf';
+import cumeneReport from '../assets/reports/cumene_Report.pdf';
+import airflowReport from '../assets/reports/Engineering_Optimisation_Report.pdf';
+import saffmanReport from '../assets/reports/ICL_Project_Report_Group_E.pdf';
+import thermoReport from '../assets/reports/ES211_Project.pdf';
+import heatReport from '../assets/reports/CL204-Heat_final report_Group3.pdf';
 
 import harNotebook from './HAR_Analysis.json';
+import saffmanNotebook from './ICL_Saffman.json';
 
 export const cseProjects = [
     {
@@ -136,7 +144,19 @@ export const coreProjects = [
         description: "Parameter estimation for wood particle pyrolysis.",
         image: pyrolysisImg,
         link: "/project/pyrolysis",
-        category: "Separation process"
+        category: "Separation process",
+        slug: "pyrolysis",
+        techStack: ["MATLAB", "Simulink", "Parameter Estimation"],
+        repoUrl: "https://iitgnacin-my.sharepoint.com/:f:/g/personal/22110085_iitgn_ac_in/IgBVDOWwWKHrRoaLWNHzXRbsAVrJU5MMrZAkfG0I7Vd3MvU?e=t4t5J8",
+        reportUrl: pyrolysisReport,
+        presentationUrl: pyrolysisPpt,
+        features: [
+            "Mathematical Modeling of Pyrolysis Kinetics",
+            "Parameter Estimation using Experimental Data",
+            "Curve Fitting & Error Minimization",
+            "Simulation of Decomposition Profiles"
+        ],
+        longDescription: "The project involves the **mathematical modeling and simulation of wood particle pyrolysis** to estimate kinetic parameters. By fitting experimental data to theoretical models, we determined the reaction rate constants and activation energies for the decomposition process. This work aids in optimizing reactor design and understanding the thermal degradation behavior of biomass."
     },
     {
         title: "Cumene Process Design",
@@ -144,7 +164,17 @@ export const coreProjects = [
         description: "Energy-efficient plant design and optimization.",
         image: cumeneImg,
         link: "/project/cumene",
-        category: "Process Design"
+        category: "Process Design",
+        slug: "cumene",
+        techStack: ["ASPEN Plus", "Heat Exchanger Network Design", "Process Safety"],
+        reportUrl: cumeneReport,
+        features: [
+            "Material & Energy Balance Calculations",
+            "Reactor & Distillation Column Design",
+            "Heat Exchanger Network Synthesis (HENS)",
+            "Economic & Safety Analysis"
+        ],
+        longDescription: "This project entails the comprehensive **design of a chemical plant for the production of Cumene** from benzene and propylene. It includes detailed material and energy balances, the design of major equipment like reactors and distillation columns, and the synthesis of a Heat Exchanger Network (HEN) to maximize energy recovery. An economic analysis and hazard identification study were also conducted to ensure viability and safety."
     },
     {
         title: "Laminar Airflow Optimization",
@@ -152,7 +182,18 @@ export const coreProjects = [
         description: "Minimizing heat loss via CFD analysis.",
         image: optimisationImg,
         link: "/project/airflow",
-        category: "Optimisation"
+        category: "Optimisation",
+        slug: "airflow",
+        techStack: ["OpenFOAM", "Python", "Genetic Algorithms"],
+        repoUrl: "https://github.com/gaurav-budhwani/ES604---Project",
+        reportUrl: airflowReport,
+        features: [
+            "CFD Simulation of Laminar Airflow",
+            "Adjoint-based Optimization",
+            "Heat Loss Minimization",
+            "Geometric Shape Optimization"
+        ],
+        longDescription: "This project uses **Computational Fluid Dynamics (CFD)** and optimization techniques to minimize heat loss in a laminar airflow system. By simulating fluid flow and heat transfer, we optimized the geometry of the system to reduce thermal dissipation. The study combines numerical simulations with optimization algorithms to achieve an energy-efficient design."
     },
     {
         title: "Saffman-Taylor Instability",
@@ -160,7 +201,20 @@ export const coreProjects = [
         description: "Experimental study of Hele-Shaw instability.",
         image: saffmanImg,
         link: "/project/saffman",
-        category: "Modelling"
+        category: "Modelling",
+        slug: "saffman",
+        techStack: ["Python", "Image Processing", "Fluid Mechanics"],
+        repoUrl: "https://github.com/gaurav-budhwani/CL326-Project",
+        reportUrl: saffmanReport,
+        notebookData: saffmanNotebook,
+        fullWidth: true,
+        features: [
+            "Experimental Visualization of Viscous Fingering",
+            "Image Processing to Analyze Finger Width",
+            "Validation of Modified Darcy's Law",
+            "Data Extraction and Regression Analysis"
+        ],
+        longDescription: "This project investigates the **Saffman-Taylor instability (viscous fingering)**, a phenomenon that occurs when a less viscous fluid displaces a more viscous one in a porous medium. Using a Hele-Shaw cell setup, we captured the interface dynamics and used image processing techniques to analyze finger width and propagation. The experimental results were compared with theoretical predictions to validate the governing laws of fluid instability."
     },
     {
         title: "Thermodynamics Analysis",
@@ -168,7 +222,18 @@ export const coreProjects = [
         description: "Thermodynamic cycle analysis and efficiency study.",
         image: thermoImg,
         link: "/project/thermo",
-        category: "Thermodynamics"
+        category: "Thermodynamics",
+        slug: "thermo",
+        techStack: ["Python", "Thermodynamics", "Data Analysis"],
+        repoUrl: "https://github.com/gaurav-budhwani/ES-211-Project",
+        reportUrl: thermoReport,
+        features: [
+            "Thermodynamic Cycle Simulation",
+            "Efficiency Calculation",
+            "Property Variation Analysis",
+            "Theoretical Validation"
+        ],
+        longDescription: "This research project involves the **analysis of thermodynamic cycles** to evaluate their efficiency and performance under various operating conditions. We modeled the cycles and simulated the thermodynamic processes to understand the impact of different parameters on system performance, validating the results with theoretical principles."
     },
     {
         title: "Heat Transfer Efficiency",
@@ -176,8 +241,20 @@ export const coreProjects = [
         description: "Analysis of circular fin heat transfer efficiency.",
         image: heatImg,
         link: "/project/heat-transfer",
-        category: "Heat Transfer"
+        category: "Heat Transfer",
+        slug: "heat-transfer",
+        techStack: ["Experimental", "Data Analysis", "Heat Transfer"],
+        reportUrl: heatReport,
+        videoUrl: "https://iitgnacin-my.sharepoint.com/:v:/g/personal/22110085_iitgn_ac_in/IQDJl_mA1WMES7AGZt2HFq0PAdzCpJKkuSRgM0-ucMMPrLo?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=EBotLt",
+        features: [
+            "Experimental Setup of Circular Fin",
+            "Temperature Profile Measurement",
+            "Efficiency Calculation",
+            "Comparison with Analytical Models"
+        ],
+        longDescription: "This project focuses on the **experimental analysis of heat transfer efficiency** in circular fins. By setting up a controlled experiment, we measured the temperature distribution along the fin and calculated its heat transfer efficiency. The experimental data were then compared with analytical models to validate the heat transfer correlations."
     }
 ];
+
 
 export const allProjects = [...cseProjects, ...coreProjects];
