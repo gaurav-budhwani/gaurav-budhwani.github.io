@@ -3,6 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { allProjects } from '../data/projects';
 import { motion } from 'framer-motion';
+import NotebookRenderer from '../components/NotebookRenderer';
 
 const ProjectPage = () => {
     const { slug } = useParams();
@@ -93,6 +94,14 @@ const ProjectPage = () => {
                                         <li key={i}>{feature}</li>
                                     ))}
                                 </ul>
+                            </div>
+                        )}
+
+                        {/* Notebook Renderer */}
+                        {project.notebookData && (
+                            <div className="mt-16 pt-16 border-t border-black/10">
+                                <h3 className="font-serif text-2xl font-bold mb-8">Detailed Analysis (Jupyter Notebook)</h3>
+                                <NotebookRenderer data={project.notebookData} />
                             </div>
                         )}
                     </div>

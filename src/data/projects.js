@@ -15,6 +15,8 @@ import pyrolysisImg from '../assets/core/pyrolysis.png';
 import tcpReport from '../assets/reports/CN_Project.pdf';
 import cspReport from '../assets/reports/CSP_Report.pdf';
 
+import harNotebook from './HAR_Analysis.json';
+
 export const cseProjects = [
     {
         title: "TCP Congestion Control Simulator",
@@ -57,10 +59,22 @@ export const cseProjects = [
     {
         title: "Human Activity Recognition",
         subtitle: "Machine Learning",
-        description: "Classifying human activities using sensor data.",
+        description: "ML model interpreting accelerometer data.",
         image: harImg,
         link: "/project/har",
-        category: "Machine Learning"
+        category: "Machine Learning",
+        slug: "har",
+        longDescription: "Machine learning model that can identify different human activities like walking, sitting, and running using data from an accelerometer. This project involves Exploratory Data Analysis (EDA), Feature Engineering using the TSFEL library, and training Decision Trees to classify activities with high accuracy.",
+        features: [
+            "Accelerometer Data Analysis",
+            "Time Series Feature Extraction (TSFEL)",
+            "PCA Dimensionality Reduction",
+            "Decision Tree Classification",
+            "Real-world Data Validation"
+        ],
+        techStack: ["Python", "Scikit-Learn", "Pandas", "Seaborn"],
+        repoUrl: "https://github.com/gaurav-budhwani/HAR-Human-Activity-Recognizer-ML",
+        notebookData: harNotebook
     },
     {
         title: "Quiz Application",
