@@ -83,7 +83,29 @@ export const cseProjects = [
         description: "Interactive quiz platform with secure authentication.",
         image: quizImg,
         link: "/project/quiz-app",
-        category: "Web Dev / Databses / Security"
+        category: "Web Dev / Databases",
+        slug: "quiz-app",
+        techStack: ["Flask", "SQLite3", "Python", "HTML/CSS"],
+        repoUrl: "https://github.com/Hit2737/Quiz_App",
+        features: [
+            "User Authentication (Login, Signup, Forgot Password)",
+            "Admin Dashboard for creating and managing quizzes",
+            "Student Dashboard for taking quizzes",
+            "Secure environment with basic verification",
+            "Responsive Design"
+        ],
+        longDescription: `This repo provides the code for the quiz app that I built with my friends ([Ruchit Jagodara](https://github.com/ruchitjagodara), [Bhavik Patel](https://github.com/bp0609/), [Hitesh Kumar](https://github.com/gaurav-budhwani)) under the guidance of [Prof. Balagopal Komarath](https://github.com/balu).
+
+The app is built using **Flask** and **SQLite3** and is designed to be lightweight, allowing it to be hosted on any machine with Python installed.
+
+### Key Capabilities
+- **Authentication**: Includes secure login, signup, and password recovery.
+- **Classroom Utility**: Can be used for attendance and secure quiz-taking with verification features.
+- **Admin Role**: Admins can create quizzes, add questions (text or MCQ), set options, and manage the quiz lifecycle (start/stop/lock).
+- **Student Role**: Students can join quizzes via code, verify their identity, and attempt questions in a controlled environment.
+
+### How it Works
+The application separates roles into **Admin** and **Student**. Admins have full control over the quiz creation process, including supporting latex for math equations in questions. Students experience a streamlined interface to take the quiz and view their results.`
     },
     {
         title: "Numerical Analysis of Car Breaking System",

@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import { allProjects } from '../data/projects';
 import { motion } from 'framer-motion';
 import NotebookRenderer from '../components/NotebookRenderer';
+import ReactMarkdown from 'react-markdown';
 
 const ProjectPage = () => {
     const { slug } = useParams();
@@ -80,9 +81,9 @@ const ProjectPage = () => {
                         {project.longDescription && (
                             <div className="mb-12">
                                 <h3 className="font-serif text-2xl font-bold mb-4">Overview</h3>
-                                <p className="leading-relaxed text-gray-600">
-                                    {project.longDescription}
-                                </p>
+                                <div className="leading-relaxed text-gray-600">
+                                    <ReactMarkdown>{project.longDescription}</ReactMarkdown>
+                                </div>
                             </div>
                         )}
 
