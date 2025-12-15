@@ -12,6 +12,8 @@ import thermoImg from '../assets/core/Thermodynamics.png';
 import heatImg from '../assets/core/heat transfer.png';
 import pyrolysisImg from '../assets/core/pyrolysis.png';
 
+import tcpReport from '../assets/reports/CN_Project.pdf';
+
 export const cseProjects = [
     {
         title: "TCP Congestion Control Simulator",
@@ -19,7 +21,18 @@ export const cseProjects = [
         description: "Custom implementation of TCP protocol features.",
         image: tcpImg,
         link: "/project/tcp",
-        category: "Networking"
+        category: "Networking",
+        slug: "tcp",
+        longDescription: "Interactive simulation platform that demonstrates how different TCP congestion control algorithms work under varying network conditions, such as bandwidth, delay, and packet loss. It provides visualization of throughput, congestion window changes, and retransmission behavior.",
+        features: [
+            "Interactive Simulation of network conditions",
+            "Real-time Visualization of throughput & congestion",
+            "Congestion Window Analysis",
+            "Packet Loss & Retransmission Simulation"
+        ],
+        techStack: ["Python", "JavaScript", "React", "Matplotlib", "ns-3"],
+        repoUrl: "https://github.com/gaurav-budhwani/TCP-Congestion-Control-Algorithms",
+        reportUrl: tcpReport
     },
     {
         title: "Constraint Satisfaction",
