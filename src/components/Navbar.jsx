@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
 
 const Navbar = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
 
+    // Scroll Opacity Logic
+    const { scrollY } = useScroll();
+    const logoOpacity = useTransform(scrollY, [0, 100], [1, 0]);
+
     // Define navigation items with types
     const navItems = [
         { name: 'About', type: 'scroll', target: 'about' },
         { name: 'Projects', type: 'scroll', target: 'projects' },
         { name: 'Skills', type: 'scroll', target: 'skills' },
-        { name: 'Blog', type: 'route', path: '/blog' }, // HashRouter handles /blog as /#/blog automatically if we use navigate()
+        { name: 'Blog', type: 'route', path: '/blog' },
         { name: 'Contact', type: 'scroll', target: 'contact' }
     ];
 
@@ -33,18 +37,12 @@ const Navbar = () => {
             navigate(item.path);
         } else if (item.type === 'scroll') {
             if (location.pathname !== '/') {
-                // If not on home, go home first, then scroll (using state or timeout)
                 navigate('/', { state: { scrollTo: item.target } });
-                // We'll need a listener in App.jsx or Hero.jsx to handle the 'state' scroll
-                // For now, a simple timeout approach often works in simple apps, 
-                // but passing state is cleaner. We will assume App.jsx handles it or we add a slight delay logic here if needed.
-                // Actually, let's keep it simple: Navigate, then try to scroll after a tick.
                 setTimeout(() => {
                     const element = document.getElementById(item.target);
                     if (element) element.scrollIntoView({ behavior: 'smooth' });
                 }, 100);
             } else {
-                // Already on home, just scroll
                 const element = document.getElementById(item.target);
                 if (element) {
                     element.scrollIntoView({ behavior: 'smooth' });
@@ -58,9 +56,11 @@ const Navbar = () => {
             <div className="w-full px-6 md:px-24 h-24 flex justify-between items-center bg-transparent relative z-50">
 
                 {/* Logo */}
-                <Link to="/" className="font-serif font-bold text-2xl tracking-tighter text-black hover:opacity-70 transition-opacity z-50">
-                    GB.
-                </Link>
+                <motion.div style={{ opacity: logoOpacity }} className="z-50">
+                    <Link to="/" className="font-serif font-bold text-2xl tracking-tighter text-black hover:opacity-70 transition-opacity">
+                        GB.
+                    </Link>
+                </motion.div>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex gap-16 items-center bg-gray-200/30 backdrop-blur-xl px-16 py-4 rounded-full border border-white/20 shadow-lg ring-1 ring-black/5">
