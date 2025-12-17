@@ -46,10 +46,11 @@ const Hero = () => {
                         <div className="flex flex-wrap gap-4">
                             <a
                                 href="/Gaurav_Resume.pdf"
-                                download
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="group relative px-8 py-3 rounded-full bg-black text-white font-mono text-sm font-bold uppercase tracking-widest overflow-hidden hover:shadow-lg transition-all"
                             >
-                                <span className="relative z-10 group-hover:text-black transition-colors duration-300">Download CV</span>
+                                <span className="relative z-10 group-hover:text-black transition-colors duration-300">View CV</span>
                                 <div className="absolute inset-0 bg-white transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
                             </a>
 
