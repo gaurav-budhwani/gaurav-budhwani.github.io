@@ -302,7 +302,7 @@ const marketSentimentProject = {
         "Interactive Dashboards"
     ],
     fullWidth: true,
-    longDescription: `**Title:** Beyond the Ticker: Building a Financial "Alpha Seeker" with \`Python\`, \`NLP\`, and Complex \`SQL\`
+    longDescription: ` Trying to build a Financial "Alpha Seeker" with \`Python\`, \`NLP\`, and Complex \`SQL\`
 
 ---
 
