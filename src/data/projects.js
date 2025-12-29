@@ -27,6 +27,13 @@ import heatReport from '../assets/reports/CL204-Heat_final report_Group3.pdf';
 import harNotebook from './HAR_Analysis.json';
 import saffmanNotebook from './ICL_Saffman.json';
 
+import marketSentimentImg from '../assets/all-projects/market-sentiment.png';
+import dashboardAapl from '../assets/reports/dashboard_AAPL.png';
+import dashboardAmzn from '../assets/reports/dashboard_AMZN.png';
+import dashboardGoog from '../assets/reports/dashboard_GOOG.png';
+import dashboardMsft from '../assets/reports/dashboard_MSFT.png';
+import dashboardTsla from '../assets/reports/dashboard_TSLA.png';
+
 export const cseProjects = [
     {
         title: "TCP Congestion Control Simulator",
@@ -277,4 +284,120 @@ export const coreProjects = [
 ];
 
 
-export const allProjects = [...cseProjects, ...coreProjects];
+const marketSentimentProject = {
+    title: "Market Sentiment Alpha Seeker",
+    subtitle: "Data Engineering / NLP",
+    description: "Quantifying market hype to find financial alpha.",
+    image: marketSentimentImg,
+    link: "/project/market-sentiment",
+    category: "Data Engineering",
+    slug: "market-sentiment",
+    techStack: ["Python", "NLP (VADER)", "SQL (SQLite)", "Plotly", "ETL"],
+    repoUrl: "https://github.com/gaurav-budhwani/Market-Sentiment",
+    features: [
+        "Real-time News Scraping",
+        "Sentiment Analysis (NLP)",
+        "Time-Series Alignment (Weekend Gap Fix)",
+        "Complex SQL Transformations",
+        "Interactive Dashboards"
+    ],
+    fullWidth: true,
+    longDescription: `**Title:** Beyond the Ticker: Building a Financial "Alpha Seeker" with \`Python\`, \`NLP\`, and Complex \`SQL\`
+
+---
+
+### The "Why": Markets Run on Math *and* Emotion
+
+In classical finance theory, stock prices are supposed to reflect the fundamental value of a company. In reality, we know that isn't the whole story. Markets are heavily influenced by psychology, hype, fear, and the 24-hour news cycle.
+
+As a data engineer interested in finance, I wanted to answer a specific question: **Can we quantify "market hype" and overlay it against price action to find leading indicators?**
+
+If news sentiment turns negative on a Saturday, does that predict a gap down at Monday's open? To answer this, I couldn't just rely on structured \`OHLCV\` (Open, High, Low, Close, Volume) data. I needed to bridge the gap between unstructured text data and structured time-series data.
+
+This led to the creation of the **Market Sentiment Alpha Seeker**, an end-to-end financial analysis pipeline.
+
+---
+
+### The Technical Challenge: The "Weekend Gap"
+
+Building a sentiment analysis tool is a common project. However, making it actually useful for financial analysis presented a significant data engineering challenge: **Time Alignment.**
+
+Financial markets operate 9-to-5, Monday through Friday. News, however, never sleeps. It happens 24/7, including weekends and holidays.
+
+If a major negative headline breaks on Saturday afternoon, it won't impact the stock price until Monday morning at 9:30 AM. If you simply plot sentiment by its publication date against stock prices by their trading date, your data will be misaligned, and any correlations you find will be flawed.
+
+Solving this time-alignment mismatch became the crux of the project.
+
+---
+
+### The Architecture
+
+I designed a four-stage pipeline to handle ingestion, processing, storage, and visualization.
+
+#### 1. Ingestion Layer (The Raw Materials)
+
+I needed two distinct streams of data. For historical stock data, I utilized the reliable \`yfinance\` library. For news, I built a custom scraper using \`BeautifulSoup\` to parse Google News RSS feeds for real-time headlines related to specific tickers.
+
+#### 2. NLP & Transformation (Quantifying Hype)
+
+To turn headlines into data, I needed Sentiment Analysis. I chose **VADER** (Valence Aware Dictionary and sEntiment Reasoner) for the initial implementation. \`VADER\` is excellent at parsing the tone of short, social-media-style text common in headlines.
+
+The system is designed modularly, so \`VADER\` can easily be swapped out for more advanced financial-specific models like \`FinBERT\` in the future. Each headline receives a "compound score" ranging from -1 (extremely negative) to +1 (extremely positive).
+
+#### 3. Data Warehousing & The SQL Solution
+
+This is where the heavy lifting happens. Data is stored in a \`SQLite\` database (\`market_sentiment.db\`) with a star-schema design (fact tables for prices and news scores, dimension tables for stocks).
+
+To solve the "Weekend Gap" challenge mentioned earlier, I relied on complex \`SQL\`. I used **Window Functions** and **Common Table Expressions (CTEs)** to map news that occurred during non-trading hours to the *next available trading (effective) date*. This ensures that the sentiment shown on a chart actually corresponds to the price action it might influence.
+
+#### 4. Visualization
+
+Finally, to make the data interpretable, I used \`Plotly\` and \`Kaleido\`. The output is a series of dual-axis dashboards. The stock price is represented as a line chart, overlaid with a bar chart showing the average sentiment score for that effective date.
+
+---
+
+### The Results: Visualizing the Correlation
+
+The pipeline successfully generates high-resolution dashboards that allow for immediate visual inspection of sentiment versus price.
+
+**Tesla (TSLA)**
+
+It’s fascinating to watch how volatile stocks like Tesla react to intense bursts of news sentiment.
+
+![Dashboard TSLA](${dashboardTsla})
+
+**Apple (AAPL)**
+
+Even stable giants like Apple show interesting correlations during earnings seasons or major product announcements.
+
+![Dashboard AAPL](${dashboardAapl})
+
+**Other Key Examples:**
+
+![Dashboard AMZN](${dashboardAmzn})
+
+![Dashboard GOOG](${dashboardGoog})
+
+![Dashboard MSFT](${dashboardMsft})
+
+---
+
+### Key Takeaways for Engineering
+
+This project was a great exercise in moving beyond tutorials and dealing with messy, real-world data problems.
+
+1.  **Data Alignment is 80% of the battle:** The \`NLP\` part was surprisingly straightforward. The hardest part was writing the \`SQL\` logic to ensure Saturday's news correctly mapped to Monday's open.
+2.  **Modularity Matters:** By separating the ingestion, \`NLP\`, and storage layers, I can now upgrade the sentiment model to \`FinBERT\` without breaking the database schema or the scraping logic.
+3.  **Local Pipelines are Powerful:** You don't always need a massive cloud infrastructure to build valuable insights. A well-architected local \`Python\` and \`SQLite\` pipeline can process significant amounts of data efficiently.
+
+### Future Improvements
+
+*   Integrating \`FinBERT\` for more nuanced financial sentiment detection.
+*   Automating the pipeline via \`Airflow\` to run daily.
+*   Building a front-end web UI using \`Streamlit\` instead of static PNG images.
+
+If you want to dive into the code, check out the repository on GitHub.`
+};
+
+
+export const allProjects = [...cseProjects, marketSentimentProject, ...coreProjects];

@@ -97,12 +97,47 @@ const ProjectPage = () => {
                 {/* Content Body */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     {/* Main Content */}
-                    <div className={`${project.fullWidth ? 'lg:col-span-12' : 'lg:col-span-8'} prose prose-lg font-sans text-gray-800`}>
+                    <div className={`${project.fullWidth ? 'lg:col-span-12' : 'lg:col-span-8'} prose prose-lg font-sans text-gray-800 prose-code:text-cyan-600 prose-code:bg-cyan-50 prose-code:font-bold prose-code:px-1 prose-code:rounded prose-img:rounded-xl prose-img:shadow-lg prose-headings:font-serif`}>
                         {project.longDescription && (
                             <div className="mb-12">
                                 <h3 className="font-serif text-2xl font-bold mb-4">Overview</h3>
-                                <div className="leading-relaxed text-gray-600">
-                                    <ReactMarkdown>{project.longDescription}</ReactMarkdown>
+                                <div className="leading-relaxed text-gray-600 blogger-content">
+                                    <ReactMarkdown
+                                        components={{
+                                            img: ({ node, ...props }) => (
+                                                <figure className="my-12">
+                                                    <img {...props} className="w-full rounded-xl shadow-lg border border-gray-100" />
+                                                    {props.alt && (
+                                                        <figcaption className="text-center text-sm text-gray-400 mt-3 font-mono">
+                                                            {props.alt}
+                                                        </figcaption>
+                                                    )}
+                                                </figure>
+                                            ),
+                                            code: ({ node, inline, className, children, ...props }) => (
+                                                <code className="bg-cyan-50 text-cyan-700 px-1.5 py-0.5 rounded font-mono text-sm font-bold" {...props}>
+                                                    {children}
+                                                </code>
+                                            ),
+                                            blockquote: ({ node, ...props }) => (
+                                                <blockquote className="border-l-4 border-black pl-6 italic text-gray-700 my-8 py-2 bg-gray-50 rounded-r-lg" {...props} />
+                                            ),
+                                            h2: ({ node, ...props }) => (
+                                                <h2 className="font-serif text-3xl font-bold text-black mt-16 mb-6" {...props} />
+                                            ),
+                                            h3: ({ node, ...props }) => (
+                                                <h3 className="font-serif text-2xl font-bold text-black mt-12 mb-4" {...props} />
+                                            ),
+                                            p: ({ node, ...props }) => (
+                                                <p className="mb-6 leading-8 text-lg" {...props} />
+                                            ),
+                                            ul: ({ node, ...props }) => (
+                                                <ul className="list-disc list-inside space-y-2 mb-8 ml-4 marker:text-cyan-600" {...props} />
+                                            ),
+                                        }}
+                                    >
+                                        {project.longDescription}
+                                    </ReactMarkdown>
                                 </div>
                             </div>
                         )}
