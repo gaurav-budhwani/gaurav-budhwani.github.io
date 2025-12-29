@@ -4,6 +4,7 @@ import harImg from '../assets/cse/HAR.png';
 import numericalImg from '../assets/cse/Numerical methods.png';
 import quizImg from '../assets/cse/Quizz-app.png';
 import tcpImg from '../assets/cse/TCP.png';
+import apiGatewayImg from '../assets/all-projects/api_gateway.png';
 
 import cumeneImg from '../assets/core/Cumene.png';
 import optimisationImg from '../assets/core/Optimisation.png';
@@ -45,6 +46,25 @@ export const cseProjects = [
         techStack: ["Python", "JavaScript", "React", "Matplotlib", "ns-3"],
         repoUrl: "https://github.com/gaurav-budhwani/TCP-Congestion-Control-Algorithms",
         reportUrl: tcpReport
+    },
+    {
+        title: "API Gateway Core",
+        subtitle: "LLD / Networking",
+        description: "Low-level design of a scalable API gateway system.",
+        image: apiGatewayImg,
+        link: "/project/api-gateway",
+        category: "LLD / Networking",
+        slug: "api-gateway",
+        techStack: ["System Design", "Networking", "Load Balancing", "Rate Limiting"],
+        repoUrl: "https://github.com/gaurav-budhwani/API-Gateway-Core",
+        features: [
+            "Request Routing & Load Balancing",
+            "Rate Limiting & Throttling",
+            "Authentication & Authorization",
+            "Caching & Performance Optimization",
+            "Circuit Breaker Pattern"
+        ],
+        longDescription: "A comprehensive **low-level design of an API Gateway** that serves as a single entry point for microservices architecture. This project demonstrates the implementation of core gateway functionalities including request routing, load balancing across backend services, rate limiting to prevent abuse, and caching mechanisms for improved performance. The design focuses on scalability, fault tolerance, and security best practices."
     },
     {
         title: "Constraint Satisfaction",
