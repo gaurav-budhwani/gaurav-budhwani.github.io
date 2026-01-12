@@ -14,6 +14,7 @@ const Navbar = () => {
     // Define navigation items with types
     const navItems = [
         { name: 'About', type: 'scroll', target: 'about' },
+        { name: 'Publications', type: 'scroll', target: 'publications' },
         { name: 'Projects', type: 'scroll', target: 'projects' },
         { name: 'Skills', type: 'scroll', target: 'skills' },
         { name: 'Blog', type: 'route', path: '/blog' },
