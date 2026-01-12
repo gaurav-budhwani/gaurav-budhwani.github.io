@@ -17,13 +17,13 @@ const Publications = () => {
                     <div className="group block">
                         {/* Image */}
                         <div className="relative overflow-hidden mb-6 bg-gray-50 aspect-[4/3] border border-gray-100 rounded-lg group-hover:shadow-md transition-shadow">
-                            <div className="absolute top-3 left-3 z-10 font-mono text-[10px] bg-white px-3 py-1.5 border border-gray-200 shadow-sm rounded-full font-bold uppercase tracking-wider text-black">
+                            <div className="absolute bottom-3 left-3 z-10 font-mono text-[10px] bg-white px-3 py-1.5 border border-gray-200 shadow-sm rounded-full font-bold uppercase tracking-wider text-black">
                                 Journal Article
                             </div>
                             <img
                                 src="/images/jgr_atmospheres_cover.png"
                                 alt="JGR Atmospheres Cover"
-                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                                className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
                             />
                         </div>
 
