@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import miamiLogo from '../assets/miami_logo.png';
 import iitgnLogo from '../assets/iitgn_logo.png';
+import accentureLogo from '../assets/accenture_logo.png';
 import aboutImg from '../assets/about.JPG';
 
 const About = () => {
@@ -62,6 +63,25 @@ const About = () => {
 
                     {/* Column 3: Credentials (Right) */}
                     <div className="lg:col-span-4 flex flex-col space-y-6">
+
+                        {/* Experience Item: Accenture */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="group relative bg-gray-50 border border-gray-200 p-6 rounded-2xl hover:border-black transition-colors duration-300"
+                        >
+                            <div className="flex items-center gap-4">
+                                <div className="w-14 h-14 shrink-0 bg-gray-100 rounded-xl p-2 border border-gray-200 shadow-sm group-hover:scale-105 transition-transform">
+                                    <img src={accentureLogo} alt="Accenture" className="w-full h-full object-contain" />
+                                </div>
+                                <div>
+                                    <h4 className="font-sans text-lg font-bold leading-tight">AEH Intern</h4>
+                                    <p className="font-sans text-sm text-gray-600">Accenture</p>
+                                    <p className="font-mono text-[10px] text-gray-400 mt-1 uppercase tracking-wider">Summer 2026 (Upcoming)</p>
+                                </div>
+                            </div>
+                        </motion.div>
 
                         {/* Experience Item */}
                         <motion.div
