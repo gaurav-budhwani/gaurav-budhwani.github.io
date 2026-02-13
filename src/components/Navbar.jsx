@@ -17,7 +17,7 @@ const Navbar = () => {
         { name: 'Publications', type: 'scroll', target: 'publications' },
         { name: 'Projects', type: 'scroll', target: 'projects' },
         { name: 'Skills', type: 'scroll', target: 'skills' },
-        { name: 'Blog', type: 'route', path: '/blog' },
+        { name: 'Archive', type: 'route', path: '/blog' },
         { name: 'Contact', type: 'scroll', target: 'contact' }
     ];
 
