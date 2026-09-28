@@ -35,6 +35,7 @@ const About = () => {
                                     src={aboutImg}
                                     alt="Gaurav at University of Miami"
                                     className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                                    loading="lazy"
                                 />
                             </div>
                             <p className="font-sans text-sm font-medium text-gray-700 mt-4 text-center">
@@ -73,12 +74,13 @@ const About = () => {
                         >
                             <div className="flex items-center gap-4">
                                 <div className="w-14 h-14 shrink-0 bg-gray-100 rounded-xl p-2 border border-gray-200 shadow-sm group-hover:scale-105 transition-transform">
-                                    <img src={accentureLogo} alt="Accenture" className="w-full h-full object-contain" />
+                                    <img src={accentureLogo} alt="Accenture" className="w-full h-full object-contain" loading="lazy" />
                                 </div>
                                 <div>
                                     <h4 className="font-sans text-lg font-bold leading-tight">AEH Intern</h4>
                                     <p className="font-sans text-sm text-gray-600">Accenture</p>
-                                    <p className="font-mono text-[10px] text-gray-400 mt-1 uppercase tracking-wider">Summer 2026 (Upcoming)</p>
+                                    <p className="font-mono text-[10px] text-gray-400 mt-1 uppercase tracking-wider">May'26 - July'26</p>
+                                    <p className="font-sans text-[11px] whitespace-nowrap text-gray-700 font-bold mt-1 tracking-tight">Offered PPO for ETE (Elite Technology Engineering) Role</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -92,7 +94,7 @@ const About = () => {
                         >
                             <div className="flex items-center gap-4">
                                 <div className="w-14 h-14 shrink-0 bg-gray-100 rounded-xl p-2 border border-gray-200 shadow-sm group-hover:scale-105 transition-transform">
-                                    <img src={miamiLogo} alt="University of Miami" className="w-full h-full object-contain" />
+                                    <img src={miamiLogo} alt="University of Miami" className="w-full h-full object-contain" loading="lazy" />
                                 </div>
                                 <div>
                                     <h4 className="font-sans text-lg font-bold leading-tight">Applied Machine Learning Intern</h4>
@@ -112,7 +114,7 @@ const About = () => {
                         >
                             <div className="flex items-center gap-4">
                                 <div className="w-14 h-14 shrink-0 bg-gray-100 rounded-xl p-2 border border-gray-200 shadow-sm group-hover:scale-105 transition-transform">
-                                    <img src={iitgnLogo} alt="IIT Gandhinagar" className="w-full h-full object-contain" />
+                                    <img src={iitgnLogo} alt="IIT Gandhinagar" className="w-full h-full object-contain" loading="lazy" />
                                 </div>
                                 <div>
                                     <h4 className="font-sans text-lg font-bold leading-tight">Bachelor of Technology</h4>

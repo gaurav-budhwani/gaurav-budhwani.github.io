@@ -76,6 +76,7 @@ const NotebookRenderer = ({ data }) => {
                                                                 src={`data:image/png;base64,${output.data['image/png'].replace(/\n/g, '')}`}
                                                                 alt="Notebook Output"
                                                                 className="max-w-full h-auto rounded-lg"
+                                                                loading="lazy"
                                                             />
                                                         </div>
                                                     )}

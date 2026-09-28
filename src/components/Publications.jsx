@@ -24,6 +24,7 @@ const Publications = () => {
                                 src="/images/jgr_atmospheres_cover.png"
                                 alt="JGR Atmospheres Cover"
                                 className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                                loading="lazy"
                             />
                         </div>
 

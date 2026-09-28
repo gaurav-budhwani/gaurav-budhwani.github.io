@@ -1,5 +1,5 @@
-import { Routes, Route, useLocation } from 'react-router-dom'; // Import useLocation
-import React, { useEffect } from 'react'; // Import useEffect
+import { Routes, Route, useLocation } from 'react-router-dom';
+import React, { useEffect, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Work from './components/Work';
@@ -8,8 +8,9 @@ import About from './components/About';
 import Skills from './components/Skills';
 import POR from './components/POR';
 import Contact from './components/Contact';
-import Blog from './pages/Blog';
-import ProjectPage from './pages/ProjectPage';
+
+const Blog = React.lazy(() => import('./pages/Blog'));
+const ProjectPage = React.lazy(() => import('./pages/ProjectPage'));
 
 function App() {
   const location = useLocation();
@@ -30,21 +31,23 @@ function App() {
   return (
     <div className="bg-white min-h-screen selection:bg-black selection:text-white bg-grid">
       <Navbar />
-      <Routes>
-        <Route path="/" element={
-          <>
-            <Hero />
-            <About />
-            <Publications />
-            <Work />
-            <Skills />
-            <POR />
-            <Contact />
-          </>
-        } />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/project/:slug" element={<ProjectPage />} />
-      </Routes>
+      <Suspense fallback={<div className="flex h-screen items-center justify-center">Loading...</div>}>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <About />
+              <Publications />
+              <Work />
+              <Skills />
+              <POR />
+              <Contact />
+            </>
+          } />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/project/:slug" element={<ProjectPage />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }

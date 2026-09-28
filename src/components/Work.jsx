@@ -32,6 +32,7 @@ const Work = () => {
                                     src={project.image}
                                     alt={project.title}
                                     className="w-full h-full object-contain p-4 transform group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                                    loading="lazy"
                                 />
                             </div>
 
