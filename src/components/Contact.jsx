@@ -15,15 +15,15 @@ const Contact = () => {
                 <div className="col-span-1 md:col-span-4 flex flex-col justify-end items-start md:items-end">
                     <a href="mailto:gaurav.budhwani@iitgn.ac.in" className="group flex items-center justify-between w-full md:w-64 border-b border-white/20 py-4 hover:bg-white hover:text-black hover:px-4 transition-all duration-300">
                         <span className="font-mono text-sm uppercase">Email</span>
-                        <span className="font-sans font-bold">Arrow &rarr;</span>
+                        <span className="font-sans font-bold">&rarr;</span>
                     </a>
                     <a href="https://www.linkedin.com/in/gaurav-budhwani-66a78625a/" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between w-full md:w-64 border-b border-white/20 py-4 hover:bg-white hover:text-black hover:px-4 transition-all duration-300">
                         <span className="font-mono text-sm uppercase">LinkedIn</span>
-                        <span className="font-sans font-bold">Arrow &rarr;</span>
+                        <span className="font-sans font-bold">&rarr;</span>
                     </a>
                     <a href="https://github.com/gaurav-budhwani" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between w-full md:w-64 border-b border-white/20 py-4 hover:bg-white hover:text-black hover:px-4 transition-all duration-300">
                         <span className="font-mono text-sm uppercase">GitHub</span>
-                        <span className="font-sans font-bold">Arrow &rarr;</span>
+                        <span className="font-sans font-bold">&rarr;</span>
                     </a>
                 </div>
 
