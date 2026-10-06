@@ -1,12 +1,15 @@
 import React from 'react';
-
+import { ThinkingOrb } from 'thinking-orbs';
 const Contact = () => {
     return (
         <footer id="contact" className="bg-black text-white pt-24 pb-12 px-6 md:px-12 mt-12">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-white/20 pb-24">
 
                 <div className="col-span-1 md:col-span-8">
-                    <p className="font-mono text-xs text-gray-400 uppercase tracking-widest mb-4">Initialise_Procedure: Contact</p>
+                    <div className="flex items-center gap-3 mb-4">
+                        <ThinkingOrb state="searching" size={20} theme="dark" />
+                        <p className="font-mono text-xs text-gray-400 uppercase tracking-widest">Initialise_Procedure: Contact</p>
+                    </div>
                     <h2 className="font-serif text-[12vw] md:text-[8vw] leading-[0.8] font-bold tracking-tight mb-8 hover:text-gray-300 transition-colors cursor-default">
                         LET'S<br />BUILD.
                     </h2>

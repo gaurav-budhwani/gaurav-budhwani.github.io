@@ -23,6 +23,8 @@ function App() {
         // Small timeout ensures DOM is ready
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
+          // Clear the state so refreshing doesn't scroll down again
+          window.history.replaceState({}, document.title);
         }, 100);
       }
     }

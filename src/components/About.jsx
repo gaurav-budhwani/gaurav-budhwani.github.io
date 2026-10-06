@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import miamiLogo from '../assets/miami_logo.png';
 import iitgnLogo from '../assets/iitgn_logo.png';
 import accentureLogo from '../assets/accenture_logo.png';
 import aboutImg from '../assets/about.JPG';
+import { ImageGeneration } from 'img-fx';
 
 const About = () => {
+    const imageFxRef = useRef(null);
+    const hasRevealed = useRef(false);
+
+    const handleViewportEnter = () => {
+        if (!hasRevealed.current) {
+            hasRevealed.current = true;
+            // Delay slightly to let the fade-in complete
+            setTimeout(() => {
+                imageFxRef.current?.triggerReveal({ hold: 'manual' });
+            }, 600);
+        }
+    };
     return (
         <section id="about" className="py-32 px-6 md:px-12 bg-white relative border-b border-black/5">
             <div className="max-w-[1400px] mx-auto">
@@ -27,16 +40,25 @@ const About = () => {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            onViewportEnter={handleViewportEnter}
                             className="relative"
                         >
-                            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-                                <img
-                                    src={aboutImg}
-                                    alt="Gaurav at University of Miami"
-                                    className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
-                                    loading="lazy"
-                                />
+                            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm grayscale hover:grayscale-0 transition-all duration-700 ease-in-out">
+                                <ImageGeneration
+                                    ref={imageFxRef}
+                                    preset="pixels-organic"
+                                    images={[aboutImg, aboutImg]}
+                                >
+                                    <div className="w-full h-full relative">
+                                        <img
+                                            src={aboutImg}
+                                            alt="Gaurav at University of Miami"
+                                            className="w-full h-auto object-cover opacity-0"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                </ImageGeneration>
                             </div>
                             <p className="font-sans text-sm font-medium text-gray-700 mt-4 text-center">
                                 At University of Miami, Florida, USA

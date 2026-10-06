@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { cseProjects } from '../data/projects';
+import { ThinkingOrb } from 'thinking-orbs';
 
 const Work = () => {
     // Only showing CSE projects on Home Page per request
@@ -27,6 +28,9 @@ const Work = () => {
                             <div className="relative overflow-hidden mb-6 bg-gray-50 aspect-[4/3] border border-gray-100 rounded-lg group-hover:shadow-md transition-shadow">
                                 <div className="absolute top-3 left-3 z-10 font-mono text-[10px] bg-white px-3 py-1.5 border border-gray-200 shadow-sm rounded-full font-bold uppercase tracking-wider text-black">
                                     {project.subtitle}
+                                </div>
+                                <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 bg-white/80 backdrop-blur-sm rounded-full p-1.5 border border-gray-200">
+                                    <ThinkingOrb state="connecting" size={20} theme="light" />
                                 </div>
                                 <img
                                     src={project.image}

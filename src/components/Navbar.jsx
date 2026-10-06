@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
+import { ThinkingOrb } from 'thinking-orbs';
 
 const Navbar = () => {
     const location = useLocation();
@@ -57,7 +58,8 @@ const Navbar = () => {
             <div className="w-full px-6 md:px-24 h-24 flex justify-between items-center bg-transparent relative z-50">
 
                 {/* Logo */}
-                <motion.div style={{ opacity: logoOpacity }} className="z-50">
+                <motion.div style={{ opacity: logoOpacity }} className="z-50 flex items-center gap-3">
+                    <ThinkingOrb state="working" size={20} theme="light" />
                     <Link to="/" className="font-serif font-bold text-2xl tracking-tighter text-black hover:opacity-70 transition-opacity">
                         GB.
                     </Link>
