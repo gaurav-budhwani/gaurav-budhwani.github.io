@@ -32,6 +32,8 @@ html[data-touch] #app{touch-action:none;top:var(--tg-top,0px)!important;bottom:a
   .pcanvas{width:100%!important;max-width:520px}
   .panel{flex:none;border-right:0!important;border-top:1px solid #1E1E1E;overflow:visible!important;padding:20px 16px calc(32px + env(safe-area-inset-bottom))!important}
 }
+.poster { display: grid; }
+.hide-ui { display: none !important; }
 </style>
 </head>
 <body>
@@ -59,7 +61,7 @@ html[data-touch] #app{touch-action:none;top:var(--tg-top,0px)!important;bottom:a
     </div>
   </div>
 
-  <div id="poster-ui" class="poster" style="position:absolute;inset:0;display:none;grid-template-columns:minmax(280px,340px) minmax(0,1fr);background:#000;cursor:default;color:#EDEDED;font-size:12px;letter-spacing:0.03em">
+  <div id="poster-ui" class="poster hide-ui" style="position:absolute;inset:0;grid-template-columns:minmax(280px,340px) minmax(0,1fr);background:#000;cursor:default;color:#EDEDED;font-size:12px;letter-spacing:0.03em">
     <div class="panel" style="border-right:1px solid #1E1E1E;overflow-y:auto;overflow-x:hidden;padding:24px 22px 32px;display:flex;flex-direction:column;gap:26px;background:#0A0A0A">
       <div style="display:flex;flex-direction:column;gap:4px">
         <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:26px;letter-spacing:0;color:#FFFFFF">Poster</div>
@@ -201,7 +203,11 @@ class TypeGarden {
     this.cv.current.style.display = isType ? 'block' : 'none';
     document.getElementById('type-ui').style.display = isType && this.props.showHint ? 'flex' : 'none';
     document.getElementById('type-ui').style.color = pal.C.text;
-    document.getElementById('poster-ui').style.display = !isType ? 'grid' : 'none';
+    if (isType) {
+      document.getElementById('poster-ui').classList.add('hide-ui');
+    } else {
+      document.getElementById('poster-ui').classList.remove('hide-ui');
+    }
     
     const mt = document.getElementById('mode-type');
     mt.style.background = isType ? '#FFFFFF' : 'transparent';
