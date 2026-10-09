@@ -24,8 +24,8 @@ import saffmanReport from '../assets/reports/ICL_Project_Report_Group_E.pdf';
 import thermoReport from '../assets/reports/ES211_Project.pdf';
 import heatReport from '../assets/reports/CL204-Heat_final report_Group3.pdf';
 
-import harNotebook from './HAR_Analysis.json';
-import saffmanNotebook from './ICL_Saffman.json';
+const harNotebook = '/data/HAR_Analysis.json';
+const saffmanNotebook = '/data/ICL_Saffman.json';
 
 import marketSentimentImg from '../assets/all-projects/market-sentiment.png';
 import dashboardAapl from '../assets/reports/dashboard_AAPL.png';

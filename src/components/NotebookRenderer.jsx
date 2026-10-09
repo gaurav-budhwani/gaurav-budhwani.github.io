@@ -1,14 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const NotebookRenderer = ({ data }) => {
-    if (!data || !data.cells) return null;
+    const [notebookData, setNotebookData] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if (typeof data === 'string') {
+            setLoading(true);
+            fetch(data)
+                .then(res => res.json())
+                .then(json => {
+                    setNotebookData(json);
+                    setLoading(false);
+                })
+                .catch(err => {
+                    console.error("Failed to load notebook", err);
+                    setLoading(false);
+                });
+        } else {
+            setNotebookData(data);
+        }
+    }, [data]);
+
+    if (loading) {
+        return <div className="w-full text-center py-20 font-mono text-sm text-gray-500">Loading Notebook Data...</div>;
+    }
+
+    if (!notebookData || !notebookData.cells) return null;
 
     return (
         <div className="w-full max-w-5xl mx-auto space-y-8 font-sans text-gray-800">
-            {data.cells.map((cell, index) => (
+            {notebookData.cells.map((cell, index) => (
                 <div key={index} className="notebook-cell group">
 
                     {/* Markdown Cells */}
