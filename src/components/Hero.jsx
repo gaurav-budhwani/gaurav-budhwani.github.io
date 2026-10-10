@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ThinkingOrb } from 'thinking-orbs';
 import { ImageGeneration, setFrameRate } from 'img-fx';
+import { FlickeringGrid } from './FlickeringGrid';
 
 // Speed up the effect
 setFrameRate && setFrameRate(30);
@@ -22,11 +23,15 @@ const Hero = () => {
     return (
         <section className="min-h-screen w-full flex flex-col items-center justify-center relative overflow-hidden pt-20">
 
-            {/* Decorative Grid Lines */}
-            <div className="absolute top-1/4 w-full h-[1px] bg-black/10"></div>
-            <div className="absolute bottom-1/4 w-full h-[1px] bg-black/10"></div>
-            <div className="absolute left-1/4 h-full w-[1px] bg-black/10 hidden md:block"></div>
-            <div className="absolute right-1/4 h-full w-[1px] bg-black/10 hidden md:block"></div>
+            {/* Flickering Grid */}
+            <FlickeringGrid
+                className="absolute inset-0 z-0 size-full"
+                squareSize={4}
+                gridGap={6}
+                color="#6B7280"
+                maxOpacity={0.27}
+                flickerChance={0.1}
+            />
 
             <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center h-full">
 
