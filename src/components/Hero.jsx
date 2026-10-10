@@ -55,7 +55,7 @@ const Hero = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        Hi, I am <span className="font-bold">Gaurav Budhwani</span>
+                        Hi, This is <span className="font-bold">Gaurav</span>
                     </motion.h1>
 
                     <motion.div

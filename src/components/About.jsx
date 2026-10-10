@@ -5,6 +5,7 @@ import iitgnLogo from '../assets/iitgn_logo.png';
 import accentureLogo from '../assets/accenture_logo.png';
 import aboutImg from '../assets/about.JPG';
 import { ImageGeneration } from 'img-fx';
+import { LightRays } from './LightRays';
 
 const About = () => {
     const imageFxRef = useRef(null);
@@ -20,8 +21,9 @@ const About = () => {
         }
     };
     return (
-        <section id="about" className="py-32 px-6 md:px-12 bg-white relative border-b border-black/5">
-            <div className="max-w-[1400px] mx-auto">
+        <section id="about" className="py-32 px-6 md:px-12 bg-white relative border-b border-black/5 overflow-hidden">
+            <LightRays />
+            <div className="max-w-[1400px] mx-auto relative z-10">
 
                 {/* Section Heading */}
                 <motion.h2
