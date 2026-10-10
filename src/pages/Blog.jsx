@@ -6,7 +6,7 @@ import { allProjects } from '../data/projects';
 
 const Blog = () => {
     return (
-        <div className="bg-white min-h-screen bg-grid">
+        <div className="bg-white min-h-screen">
             <Navbar />
             <div className="pt-32 px-6 md:px-24 max-w-[1400px] mx-auto pb-24">
                 <motion.div

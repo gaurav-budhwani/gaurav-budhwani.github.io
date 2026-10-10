@@ -31,7 +31,7 @@ function App() {
   }, [location]);
 
   return (
-    <div className="bg-white min-h-screen selection:bg-black selection:text-white bg-grid">
+    <div className="bg-white min-h-screen selection:bg-black selection:text-white">
       <Navbar />
       <Suspense fallback={<div className="flex h-screen items-center justify-center">Loading...</div>}>
         <Routes>
