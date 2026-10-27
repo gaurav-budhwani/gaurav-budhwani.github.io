@@ -3,9 +3,9 @@ import React from 'react';
 const pors = [
     {
         title: "Undergraduate Teaching Assistant",
-        organization: "Engineering Optimisation",
-        period: "Aug '25 - Nov '25",
-        description: "Conducted weekly tutorial sessions, mentored students on assignments and projects, clarified optimization concepts, and provided structured feedback to improve problem-solving and implementation quality."
+        organization: "Engineering Optimisation & Process, Synthesis, Design, and Simulation",
+        period: "Aug '25 - May '26",
+        description: "Assisted faculty in conducting laboratory sessions, tutorials, and academic support activities for a class size of 50+ students. Facilitated weekly doubt-clearing sessions and evaluated course projects."
     },
     {
         title: "Design Team Member",

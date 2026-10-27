@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ThinkingOrb } from 'thinking-orbs';
 import { ImageGeneration, setFrameRate } from 'img-fx';
 import { FlickeringGrid } from './FlickeringGrid';
 
@@ -8,8 +7,6 @@ import { FlickeringGrid } from './FlickeringGrid';
 setFrameRate && setFrameRate(30);
 
 const Hero = () => {
-    const [orbState, setOrbState] = useState('breathing');
-    const [orbText, setOrbText] = useState('System Idle');
     const imageFxRef = useRef(null);
 
     useEffect(() => {
@@ -37,17 +34,6 @@ const Hero = () => {
 
                 {/* Text Block */}
                 <div className="col-span-1 md:col-span-7 flex flex-col justify-center">
-
-                    {/* Interactive AI Widget */}
-                    <motion.div
-                        className="mb-8 flex items-center gap-3 bg-gray-50 border border-gray-200 w-fit px-4 py-2 rounded-full shadow-sm"
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <ThinkingOrb state={orbState} size={20} theme="light" />
-                        <span className="font-mono text-[10px] uppercase tracking-widest text-gray-500 font-semibold min-w-[150px] whitespace-nowrap">{orbText}</span>
-                    </motion.div>
 
                     <motion.h1
                         className="font-serif text-4xl md:text-6xl font-normal leading-tight tracking-tight mb-8"
@@ -82,8 +68,6 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group relative px-8 py-3 rounded-full bg-black text-white font-mono text-sm font-bold uppercase tracking-widest overflow-hidden hover:shadow-lg transition-all"
-                                onMouseEnter={() => { setOrbState('working'); setOrbText('Retrieving CV...'); }}
-                                onMouseLeave={() => { setOrbState('breathing'); setOrbText('System Idle'); }}
                             >
                                 <span className="relative z-10 group-hover:text-black transition-colors duration-300">Download CV</span>
                                 <div className="absolute inset-0 bg-white transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
@@ -92,8 +76,6 @@ const Hero = () => {
                             <a
                                 href="#contact"
                                 className="group relative px-8 py-3 rounded-full bg-white text-black border border-black font-mono text-sm font-bold uppercase tracking-widest overflow-hidden hover:shadow-lg transition-all"
-                                onMouseEnter={() => { setOrbState('connecting'); setOrbText('Establishing Link...'); }}
-                                onMouseLeave={() => { setOrbState('breathing'); setOrbText('System Idle'); }}
                             >
                                 <span className="relative z-10 group-hover:text-white transition-colors duration-300">Contact Me</span>
                                 <div className="absolute inset-0 bg-black transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
@@ -107,8 +89,6 @@ const Hero = () => {
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 className="hover:scale-110 transition-transform duration-300"
-                                onMouseEnter={() => { setOrbState('weaving'); setOrbText('Parsing Github...'); }}
-                                onMouseLeave={() => { setOrbState('breathing'); setOrbText('System Idle'); }}
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-600 hover:text-black">
                                     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
@@ -120,8 +100,6 @@ const Hero = () => {
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 className="hover:scale-110 transition-transform duration-300"
-                                onMouseEnter={() => { setOrbState('searching'); setOrbText('Scanning Profile...'); }}
-                                onMouseLeave={() => { setOrbState('breathing'); setOrbText('System Idle'); }}
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-600 hover:text-blue-700">
                                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -143,8 +121,6 @@ const Hero = () => {
                 >
                     <div 
                         className="relative z-10 p-4 border border-black/10 bg-white/50 backdrop-blur-sm group w-full max-w-sm mx-auto"
-                        onMouseEnter={() => { setOrbState('solving'); setOrbText('Analyzing Subject...'); }}
-                        onMouseLeave={() => { setOrbState('breathing'); setOrbText('System Idle'); }}
                     >
                         <div className="grayscale hover:grayscale-0 transition-all duration-700">
                             <ImageGeneration

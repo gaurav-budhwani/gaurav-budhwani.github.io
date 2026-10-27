@@ -1,9 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Space Grotesk", sans-serif;
-  /* Using Space Grotesk as the display font */
-  --font-sans: "Inter", sans-serif;
+  --font-helvetica: "Helvetica Neue", Helvetica, Arial, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Headings & Display: Helvetica Bold / Family */
+  --font-serif: var(--font-helvetica);
+  /* Body & General Text: Helvetica Family */
+  --font-sans: var(--font-helvetica);
 }
 
 @layer base {
@@ -12,6 +15,8 @@
     color: black;
     font-family: var(--font-sans);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
