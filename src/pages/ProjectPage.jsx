@@ -51,6 +51,16 @@ const ProjectPage = () => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-wrap gap-4 mt-8">
+                        {project.docsUrl && (
+                            <a
+                                href={project.docsUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-full font-mono text-sm font-bold uppercase tracking-wider hover:bg-indigo-700 transition-colors shadow-sm"
+                            >
+                                Live Docs <span>↗</span>
+                            </a>
+                        )}
                         {project.reportUrl && (
                             <a
                                 href={project.reportUrl}

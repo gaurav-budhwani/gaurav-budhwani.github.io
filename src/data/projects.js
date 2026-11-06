@@ -5,6 +5,7 @@ import numericalImg from '../assets/cse/Numerical methods.png';
 import quizImg from '../assets/cse/Quizz-app.png';
 import tcpImg from '../assets/cse/TCP.png';
 import apiGatewayImg from '../assets/all-projects/api_gateway.png';
+import opexImg from '../assets/cse/OPEX.svg';
 
 import cumeneImg from '../assets/core/Cumene.png';
 import optimisationImg from '../assets/core/Optimisation.png';
@@ -23,6 +24,7 @@ import airflowReport from '../assets/reports/Engineering_Optimisation_Report.pdf
 import saffmanReport from '../assets/reports/ICL_Project_Report_Group_E.pdf';
 import thermoReport from '../assets/reports/ES211_Project.pdf';
 import heatReport from '../assets/reports/CL204-Heat_final report_Group3.pdf';
+import opexReport from '../assets/reports/OPEX_Report.pdf';
 
 const harNotebook = '/data/HAR_Analysis.json';
 const saffmanNotebook = '/data/ICL_Saffman.json';
@@ -35,6 +37,40 @@ import dashboardMsft from '../assets/reports/dashboard_MSFT.png';
 import dashboardTsla from '../assets/reports/dashboard_TSLA.png';
 
 export const cseProjects = [
+    {
+        title: "OPEX Programming Language & Compiler",
+        subtitle: "Compilers & Systems",
+        description: "Domain-specific compiled language with LALR(1) parser, 3AC IR, and C99 native backend.",
+        image: opexImg,
+        link: "/project/opex",
+        category: "Compilers & Systems",
+        slug: "opex",
+        techStack: ["C99", "Flex (Lexer)", "Bison (LALR Parser)", "3AC Intermediate Code", "Clang/GCC"],
+        repoUrl: "https://github.com/gaurav-budhwani/OPEX",
+        docsUrl: "https://gaurav-budhwani.github.io/OPEX/",
+        reportUrl: opexReport,
+        features: [
+            "LALR(1) Context-Free Grammar validated via Bison with AST construction",
+            "Scoped Semantic Symbol Table checking variable redeclarations & types",
+            "Deterministic 3-Address Code (3AC) Quadruple Intermediate Representation",
+            "First-Class Computer Vision Tensors: IMAGE, MATRIX, KERNEL, PIXEL",
+            "Native 2D Spatial Convolution (**) & Stream Pipeline (|>) operators",
+            "Optimized C99 Low-Level Code Generator targeting native Mach-O / ELF binaries"
+        ],
+        longDescription: `**OPEX (Optimized Processing Engine for eXecution)** is a domain-specific programming language and multi-stage optimizing compiler developed for **CS327: Compilers** at IIT Gandhinagar under Prof. Shouvick Mondal.
+
+The language bridges classical algorithmic computing with high-level computer vision workflows, providing first-class syntax for multi-channel images, matrix transformations, spatial convolution, and pipeline chaining.
+
+### Compiler Architecture
+The OPEX compiler follows a strict multi-pass architecture:
+1. **Lexical Analysis (Flex)**: Tokenizes language keywords, operators, and string interpolations with line/column coordinates.
+2. **Syntactic Analysis (Bison)**: Validates syntax against an unambiguous LALR(1) grammar and constructs an N-ary Abstract Syntax Tree (AST).
+3. **Semantic Analysis**: Traverses the AST with a hierarchical symbol table to catch undeclared variables, duplicate declarations, and type errors before code generation.
+4. **Intermediate Representation**: Emits Three-Address Code (3AC) Quadruples (\`[OP, ARG1, ARG2, RES]\`) with virtual registers and label jumps.
+5. **Code Generation**: Lowers the AST into standalone, portable C99 code and invokes Clang/GCC to generate bare-metal native executables.
+
+Explore the complete [interactive documentation portal](https://gaurav-budhwani.github.io/OPEX/) or review the formal compiler design report.`
+    },
     {
         title: "TCP Congestion Control Simulator",
         subtitle: "Networking",
