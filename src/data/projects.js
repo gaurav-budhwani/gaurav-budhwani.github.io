@@ -5,7 +5,7 @@ import numericalImg from '../assets/cse/Numerical methods.png';
 import quizImg from '../assets/cse/Quizz-app.png';
 import tcpImg from '../assets/cse/TCP.png';
 import apiGatewayImg from '../assets/all-projects/api_gateway.png';
-import opexImg from '../assets/cse/OPEX.svg';
+import opexImg from '../assets/cse/OPEX.png';
 
 import cumeneImg from '../assets/core/Cumene.png';
 import optimisationImg from '../assets/core/Optimisation.png';
