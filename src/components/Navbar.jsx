@@ -18,6 +18,7 @@ const Navbar = () => {
         { name: 'Publications', type: 'scroll', target: 'publications' },
         { name: 'Projects', type: 'scroll', target: 'projects' },
         { name: 'Skills', type: 'scroll', target: 'skills' },
+        { name: 'OPEX.', type: 'external', url: 'https://gaurav-budhwani.github.io/OPEX/' },
         { name: 'Archive', type: 'route', path: '/blog' },
         { name: 'Contact', type: 'scroll', target: 'contact' }
     ];
@@ -35,7 +36,9 @@ const Navbar = () => {
     const handleNavigation = (item) => {
         setIsOpen(false); // Close mobile menu
 
-        if (item.type === 'route') {
+        if (item.type === 'external') {
+            window.open(item.url, '_blank', 'noopener,noreferrer');
+        } else if (item.type === 'route') {
             navigate(item.path);
         } else if (item.type === 'scroll') {
             if (location.pathname !== '/') {
@@ -55,7 +58,7 @@ const Navbar = () => {
 
     return (
         <nav className="fixed top-0 left-0 w-full z-50">
-            <div className="w-full px-6 md:px-24 h-24 flex justify-between items-center bg-transparent relative z-50">
+            <div className="w-full px-6 md:px-12 lg:px-24 h-24 flex justify-between items-center bg-transparent relative z-50">
 
                 {/* Logo */}
                 <motion.div style={{ opacity: logoOpacity }} className="z-50 flex items-center gap-3">
@@ -66,16 +69,29 @@ const Navbar = () => {
                 </motion.div>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex gap-16 items-center bg-gray-200/30 backdrop-blur-xl px-16 py-4 rounded-full border border-white/20 shadow-lg ring-1 ring-black/5">
+                <div className="hidden md:flex gap-8 lg:gap-12 xl:gap-16 items-center bg-gray-200/30 backdrop-blur-xl px-8 lg:px-12 xl:px-16 py-4 rounded-full border border-white/20 shadow-lg ring-1 ring-black/5">
                     {navItems.map((item) => (
-                        <button
-                            key={item.name}
-                            onClick={() => handleNavigation(item)}
-                            className="font-mono text-sm uppercase tracking-widest font-bold text-black/80 hover:text-black transition-colors relative group bg-transparent border-none cursor-pointer"
-                        >
-                            {item.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
-                        </button>
+                        item.type === 'external' ? (
+                            <a
+                                key={item.name}
+                                href={item.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="font-mono text-sm uppercase tracking-widest font-bold text-black/80 hover:text-black transition-colors relative group bg-transparent border-none cursor-pointer"
+                            >
+                                {item.name}
+                                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                        ) : (
+                            <button
+                                key={item.name}
+                                onClick={() => handleNavigation(item)}
+                                className="font-mono text-sm uppercase tracking-widest font-bold text-black/80 hover:text-black transition-colors relative group bg-transparent border-none cursor-pointer"
+                            >
+                                {item.name}
+                                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+                            </button>
+                        )
                     ))}
                 </div>
 
@@ -105,13 +121,26 @@ const Navbar = () => {
                     >
                         <div className="flex flex-col gap-8 text-center">
                             {navItems.map((item) => (
-                                <button
-                                    key={item.name}
-                                    onClick={() => handleNavigation(item)}
-                                    className="font-serif text-4xl font-bold text-black hover:text-gray-600 transition-colors bg-transparent border-none"
-                                >
-                                    {item.name}
-                                </button>
+                                item.type === 'external' ? (
+                                    <a
+                                        key={item.name}
+                                        href={item.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={() => setIsOpen(false)}
+                                        className="font-serif text-4xl font-bold text-black hover:text-gray-600 transition-colors bg-transparent border-none"
+                                    >
+                                        {item.name}
+                                    </a>
+                                ) : (
+                                    <button
+                                        key={item.name}
+                                        onClick={() => handleNavigation(item)}
+                                        className="font-serif text-4xl font-bold text-black hover:text-gray-600 transition-colors bg-transparent border-none"
+                                    >
+                                        {item.name}
+                                    </button>
+                                )
                             ))}
                         </div>
                     </motion.div>
