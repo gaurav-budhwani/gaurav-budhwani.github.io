@@ -132,6 +132,22 @@ const Tools = () => {
                                     {tool.description}
                                 </p>
 
+                                {/* In-Memory & Privacy Specifications */}
+                                {tool.memorySpecs && (
+                                    <div className="bg-gray-50/80 border border-black/10 rounded-xl p-4 mb-6 space-y-3 font-mono text-xs">
+                                        {tool.memorySpecs.map((spec, sIdx) => (
+                                            <div key={sIdx} className={sIdx > 0 ? "pt-2.5 border-t border-black/5" : ""}>
+                                                <span className="font-bold text-black block mb-1">
+                                                    {spec.title}
+                                                </span>
+                                                <p className="text-gray-600 leading-relaxed font-sans text-xs">
+                                                    {spec.details}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
                                 {/* Supported formats pills */}
                                 <div className="flex flex-wrap gap-1.5 mb-6">
                                     {tool.supportedFormats.map((fmt, fIdx) => (
