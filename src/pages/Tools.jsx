@@ -132,16 +132,6 @@ const Tools = () => {
                                     {tool.description}
                                 </p>
 
-                                {/* Highlights list */}
-                                <ul className="space-y-2 mb-6 border-t border-b border-black/5 py-4">
-                                    {tool.highlights.map((highlight, hIdx) => (
-                                        <li key={hIdx} className="font-mono text-xs text-gray-600 flex items-start gap-2">
-                                            <span className="text-black font-bold">✓</span>
-                                            <span>{highlight}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-
                                 {/* Supported formats pills */}
                                 <div className="flex flex-wrap gap-1.5 mb-6">
                                     {tool.supportedFormats.map((fmt, fIdx) => (
@@ -250,3 +240,4 @@ const Tools = () => {
 };
 
 export default Tools;
+
