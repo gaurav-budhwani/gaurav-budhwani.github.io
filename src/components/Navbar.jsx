@@ -19,6 +19,7 @@ const Navbar = () => {
         { name: 'Projects', type: 'scroll', target: 'projects' },
         { name: 'Skills', type: 'scroll', target: 'skills' },
         { name: 'OPEX.', type: 'external', url: 'https://gaurav-budhwani.github.io/OPEX/' },
+        { name: 'Tools', type: 'route', path: '/tools' },
         { name: 'Archive', type: 'route', path: '/blog' },
         { name: 'Contact', type: 'scroll', target: 'contact' }
     ];
@@ -58,7 +59,7 @@ const Navbar = () => {
 
     return (
         <nav className="fixed top-0 left-0 w-full z-50">
-            <div className="w-full px-6 md:px-12 lg:px-24 h-24 flex justify-between items-center bg-transparent relative z-50">
+            <div className="w-full px-6 md:px-8 lg:px-16 h-24 flex justify-between items-center bg-transparent relative z-50">
 
                 {/* Logo */}
                 <motion.div style={{ opacity: logoOpacity }} className="z-50 flex items-center gap-3">
@@ -69,7 +70,7 @@ const Navbar = () => {
                 </motion.div>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex gap-8 lg:gap-12 xl:gap-16 items-center bg-gray-200/30 backdrop-blur-xl px-8 lg:px-12 xl:px-16 py-4 rounded-full border border-white/20 shadow-lg ring-1 ring-black/5">
+                <div className="hidden md:flex gap-4 lg:gap-7 xl:gap-9 items-center bg-gray-200/30 backdrop-blur-xl px-5 lg:px-8 xl:px-10 py-3.5 rounded-full border border-white/20 shadow-lg ring-1 ring-black/5">
                     {navItems.map((item) => (
                         item.type === 'external' ? (
                             <a
@@ -77,7 +78,7 @@ const Navbar = () => {
                                 href={item.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="font-mono text-sm uppercase tracking-widest font-bold text-black/80 hover:text-black transition-colors relative group bg-transparent border-none cursor-pointer"
+                                className="font-mono text-xs xl:text-sm uppercase tracking-wider xl:tracking-widest font-bold text-black/80 hover:text-black transition-colors relative group bg-transparent border-none cursor-pointer"
                             >
                                 {item.name}
                                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
@@ -86,7 +87,7 @@ const Navbar = () => {
                             <button
                                 key={item.name}
                                 onClick={() => handleNavigation(item)}
-                                className="font-mono text-sm uppercase tracking-widest font-bold text-black/80 hover:text-black transition-colors relative group bg-transparent border-none cursor-pointer"
+                                className="font-mono text-xs xl:text-sm uppercase tracking-wider xl:tracking-widest font-bold text-black/80 hover:text-black transition-colors relative group bg-transparent border-none cursor-pointer"
                             >
                                 {item.name}
                                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>

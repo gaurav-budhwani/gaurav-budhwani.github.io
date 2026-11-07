@@ -11,6 +11,7 @@ import Contact from './components/Contact';
 
 const Blog = React.lazy(() => import('./pages/Blog'));
 const ProjectPage = React.lazy(() => import('./pages/ProjectPage'));
+const Tools = React.lazy(() => import('./pages/Tools'));
 
 function App() {
   const location = useLocation();
@@ -47,6 +48,7 @@ function App() {
             </>
           } />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/tools" element={<Tools />} />
           <Route path="/project/:slug" element={<ProjectPage />} />
         </Routes>
       </Suspense>
