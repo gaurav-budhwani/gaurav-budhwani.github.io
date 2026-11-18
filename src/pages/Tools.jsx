@@ -33,8 +33,8 @@ const Tools = () => {
                     {/* Quick Specs Bar */}
                     <div className="flex flex-wrap items-center gap-3 sm:gap-6 pt-4 border-t border-black/10 text-xs font-mono text-gray-600">
                         <div className="flex items-center gap-2">
-                            <span className="text-black font-bold">01</span>
-                            <span>Live Tool</span>
+                            <span className="text-black font-bold">{allTools.length < 10 ? `0${allTools.length}` : allTools.length}</span>
+                            <span>Live Tools</span>
                         </div>
                         <span className="text-gray-300">•</span>
                         <div className="flex items-center gap-2">
@@ -92,7 +92,7 @@ const Tools = () => {
                                                     {tool.title}
                                                 </h3>
                                                 <p className="font-mono text-[10px] text-gray-500">
-                                                    Apple ColorSync sRGB
+                                                    {tool.engineBadge || "Client-Side Engine"}
                                                 </p>
                                             </div>
                                         </div>
@@ -105,18 +105,20 @@ const Tools = () => {
                                     <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 border border-black/5 shadow-sm">
                                         <div className="flex items-center justify-between text-[11px] font-mono">
                                             <span className="px-2 py-1 bg-gray-900 text-white rounded font-bold">
-                                                .HEIC / .HEIF
+                                                {tool.mockup?.input || "Input"}
                                             </span>
                                             <span className="text-gray-400">→</span>
                                             <div className="flex gap-1.5">
-                                                <span className="px-1.5 py-0.5 bg-gray-100 rounded text-gray-700 font-medium">PNG</span>
-                                                <span className="px-1.5 py-0.5 bg-gray-100 rounded text-gray-700 font-medium">JPG</span>
-                                                <span className="px-1.5 py-0.5 bg-gray-100 rounded text-gray-700 font-medium">WebP</span>
+                                                {tool.mockup?.outputs?.map((out, oIdx) => (
+                                                    <span key={oIdx} className="px-1.5 py-0.5 bg-gray-100 rounded text-gray-700 font-medium">
+                                                        {out}
+                                                    </span>
+                                                ))}
                                             </div>
                                         </div>
                                         <div className="mt-2.5 pt-2 border-t border-gray-100 flex items-center justify-between text-[10px] font-mono text-gray-500">
-                                            <span>Scale: 1080p • 2K • 4K • Orig</span>
-                                            <span className="text-black font-semibold">Quality: 75–100%</span>
+                                            <span>{tool.mockup?.metaLeft}</span>
+                                            <span className="text-black font-semibold">{tool.mockup?.metaRight}</span>
                                         </div>
                                     </div>
                                 </div>
